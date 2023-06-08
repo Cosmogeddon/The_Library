@@ -1,21 +1,23 @@
+const addBtn = document.querySelector('#addButton');
+
+
 let myBooks = [];
 
-function Book(title, author, pages, readStatus) {
+function Book(title, author, pages) {
     this.title = title
     this.author = author
     this.pages = pages
-    this.readStatus = readStatus
-}
+};
 
 function addBookToLibrary() {
-    let title = document.querySelector('#Title').value;
-    let author = document.querySelector('#Author').value;
-    let pages = document.querySelector('#Pages').value;
-    let readStatus = document.querySelector('#read').value;
-    let book = new Book(title, author, pages, readStatus);
+    let title = document.querySelector("#title").value;
+    let author = document.querySelector("#author").value;
+    let pages = document.querySelector("#pages").value;
+    let book = new Book(title, author, pages);
     myBooks.push(book);
-}
+ };
 
-const addBtn = document.getElementById('#addButton');
-
-addBtn.addEventListener('click', addBookToLibrary);
+addBtn.addEventListener('click', function (event) {
+  event.preventDefault();
+  addBookToLibrary();
+});
