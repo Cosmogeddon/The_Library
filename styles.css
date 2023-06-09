@@ -1,0 +1,9 @@
+.book-card{
+    border: solid 2px black;
+    width: min-content;
+}
+
+.cardDisplay {
+    display: flex;
+    justify-content: space-evenly;
+}
