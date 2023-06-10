@@ -2,6 +2,9 @@ const addBtn = document.querySelector('#addButton');
 const newBtn = document.querySelector('.newButton');
 const cardDisplay = document.querySelector('.cardDisplay');
 const formContainer = document.querySelector('.formContainer');
+const title = document.querySelector('#title');
+const author = document.querySelector('#author');
+const pages = document.querySelector('#pages')
 
 
 //creates array of books (prefilled for now)
@@ -34,6 +37,7 @@ addBtn.addEventListener('click', function (event) {
   addBookToLibrary();
   resetCards();
   myBooks.forEach(createCards)
+  resetForm();
 });
 
 newBtn.addEventListener('click', function (event) {
@@ -100,3 +104,9 @@ function createCards(book) {
 function resetCards() {
   cardDisplay.innerHTML = '';
 };
+
+function resetForm() {
+  title.value = '';
+  pages.value = '';
+  author.value = '';
+}
