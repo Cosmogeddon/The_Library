@@ -5,11 +5,8 @@ const formContainer = document.querySelector('.formContainer');
 
 
 //creates array of books (prefilled for now)
-let myBooks = [
-  book1 = {title: 'Pickle', author: 'John', pages: 3, read: 'Yes'},
-  book2 = {title: 'Sandy', author: 'Bill', pages: 22, read: 'No'},
-  book3 = {title: 'What', author: 'eric', pages: 22, read: 'Yes'}
-];
+let myBooks = [];
+
 //Book constructor
 function Book(title, author, pages, read) {
     this.title = title
