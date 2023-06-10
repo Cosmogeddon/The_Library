@@ -19,6 +19,8 @@ body{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
     row-gap: 10px;
+    justify-items: center;
+    margin-top: 100px;
 }
 
 .formContainer {
@@ -30,6 +32,7 @@ body{
     justify-content: center;
     justify-self: center;
     padding: 10px;
+    margin-bottom: 50px;
 }
 
 #pickle {

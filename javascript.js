@@ -37,7 +37,6 @@ addBtn.addEventListener('click', function (event) {
   addBookToLibrary();
   resetCards();
   myBooks.forEach(createCards)
-
 });
 
 newBtn.addEventListener('click', function (event) {
@@ -47,7 +46,7 @@ newBtn.addEventListener('click', function (event) {
   formContainer.id = 'pickle';
 })
 
-
+//creates a card for each book
 function createCards(book) {
   const bookDiv = document.createElement('div');
   const title = document.createElement('p');
@@ -57,8 +56,11 @@ function createCards(book) {
   const btnDiv = document.createElement('div');
   const rmvBtn = document.createElement('button');
   const readBtn = document.createElement('button');
-
+  
+  rmvBtn.classList.add('rmv');
+  readBtn.classList.add('lei')
   bookDiv.classList.add('book-card');
+  bookDiv.setAttribute('id', myBooks.indexOf(book));
 
   title.textContent = `Title: ${book.title}`
   author.textContent = `Author: ${book.author}`
@@ -66,6 +68,7 @@ function createCards(book) {
   read.textContent = `Finished: ${book.read}`
   rmvBtn.textContent = 'Delete';
   readBtn.textContent = 'Read It'
+
 
 
   cardDisplay.appendChild(bookDiv);
@@ -76,8 +79,27 @@ function createCards(book) {
   bookDiv.appendChild(btnDiv);
   btnDiv.appendChild(rmvBtn);
   btnDiv.appendChild(readBtn);
+
+  rmvBtn.addEventListener('click', function (event) {
+    event.preventDefault();
+    myBooks.splice(myBooks.indexOf(book), 1)
+    resetCards();
+    myBooks.forEach(createCards)
+  });
+
+  readBtn.addEventListener('click', function (event) {
+    event.preventDefault();
+    if (book.read === 'Yes') {
+      book.read = 'No';
+    } else {
+      book.read = 'Yes';
+    }
+    resetCards();
+    myBooks.forEach(createCards)
+  });
+
 }
 //fixes book duplication issue upon adding book
 function resetCards() {
   cardDisplay.innerHTML = '';
-}
+};
