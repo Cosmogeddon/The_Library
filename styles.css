@@ -7,3 +7,11 @@
     display: flex;
     justify-content: space-evenly;
 }
+
+.formContainer {
+    display: none;
+}
+
+#pickle {
+    display: block;
+}

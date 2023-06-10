@@ -1,20 +1,23 @@
 const addBtn = document.querySelector('#addButton');
 const newBtn = document.querySelector('.newButton');
 const cardDisplay = document.querySelector('.cardDisplay');
+const formContainer = document.querySelector('.formContainer');
 
+
+//creates array of books (prefilled for now)
 let myBooks = [
   book1 = {title: 'Pickle', author: 'John', pages: 3},
   book2 = {title: 'Sandy', author: 'Bill', pages: 22},
   book3 = {title: 'What', author: 'eric', pages: 22}
 ];
-
+//Book constructor
 function Book(title, author, pages, read) {
     this.title = title
     this.author = author
     this.pages = pages
     this.read = read
 };
-
+//adds books to array
 function addBookToLibrary() {
     let title = document.querySelector("#title").value;
     let author = document.querySelector("#author").value;
@@ -32,11 +35,15 @@ function addBookToLibrary() {
 addBtn.addEventListener('click', function (event) {
   event.preventDefault();
   addBookToLibrary();
+  resetCards();
+  myBooks.forEach(createCards)
+
 });
 
 newBtn.addEventListener('click', function (event) {
   event.preventDefault();
   myBooks.forEach(createCards)
+  formContainer.id = 'pickle';
 })
 
 
@@ -57,4 +64,8 @@ function createCards(book) {
   bookDiv.appendChild(title);
   bookDiv.appendChild(author);
   bookDiv.appendChild(pages);
+}
+
+function resetCards() {
+  cardDisplay.innerHTML = '';
 }
